@@ -32,6 +32,14 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
+    /* BiDi Isolation for Phone Numbers and LTR Code */
+    .bidi-isolate, bdi, [dir="ltr"] {
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      display: inline-block !important;
+      text-align: left !important;
+    }
+
     /* Uncopyable and Protected Content */
     *, html, body {
       -webkit-user-select: none !important;
@@ -118,8 +126,8 @@
       <div class="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
         <div><strong>مُقدّم العرض:</strong> م. محمد حسين (استشاري حلول البرمجيات وتطبيقات الموبايل)</div>
         <div class="flex items-center gap-4">
-          <div><strong>البريد:</strong> <span class="font-latin text-slate-900 font-bold">mohamedelsayedhussien@gmail.com</span></div>
-          <div><strong>واتساب:</strong> <span class="font-latin text-slate-900 font-bold" dir="ltr">+20 127 556 6392</span></div>
+          <div><strong>البريد:</strong> <bdi dir="ltr" class="bidi-isolate font-latin text-slate-900 font-bold">mohamedelsayedhussien@gmail.com</bdi></div>
+          <div><strong>واتساب:</strong> <bdi dir="ltr" class="bidi-isolate font-latin text-slate-900 font-bold px-1">+20 127 556 6392</bdi></div>
         </div>
       </div>
     </header>
@@ -526,6 +534,7 @@
             <div class="text-xs text-slate-500">الاستشاري المسؤول:</div>
             <div class="text-base font-bold text-slate-900 mt-0.5">م. محمد حسين</div>
             <div class="text-xs text-slate-600">استشاري ومطور حلول برمجية وتطبيقات موبايل (Flutter Specialist)</div>
+            <div class="text-xs text-slate-600 mt-1">واتساب: <bdi dir="ltr" class="bidi-isolate font-latin font-bold text-slate-900">+20 127 556 6392</bdi></div>
           </div>
         </div>
 
