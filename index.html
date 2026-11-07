@@ -32,6 +32,14 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
+    /* Uncopyable and Protected Content */
+    *, html, body {
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+    }
+
     /* Clean Word Paper Container */
     .word-sheet {
       background: #ffffff;
@@ -67,7 +75,12 @@
   </style>
 </head>
 
-<body class="py-6 sm:py-12 px-3 sm:px-6">
+<body class="py-6 sm:py-12 px-3 sm:px-6 select-none" oncontextmenu="return false;" oncopy="return false;" oncut="return false;" ondragstart="return false;">
+
+  <!-- Global Fixed Watermark (Always visibly centered across all pages and sections while scrolling) -->
+  <div class="fixed inset-0 flex items-center justify-center pointer-events-none select-none z-30">
+    <img src="assets/logo.jpg" alt="Watermark" class="w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] object-contain opacity-[0.065] contrast-125">
+  </div>
 
   <!-- Floating Action Bar (Top Right) -->
   <div class="fixed top-4 left-4 z-50 flex items-center gap-2 no-print">
@@ -81,11 +94,6 @@
 
   <!-- Document Paper Container (A4 / Corporate Style) -->
   <main class="word-sheet relative overflow-hidden max-w-4xl mx-auto p-6 sm:p-14 rounded-2xl space-y-10">
-
-    <!-- Document Watermark Background -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-      <img src="assets/logo.jpg" alt="Watermark" class="w-[450px] h-[450px] sm:w-[600px] sm:h-[600px] object-contain opacity-[0.035] grayscale contrast-125">
-    </div>
 
     <!-- Document Header / Letterhead -->
     <header class="relative z-10 border-b-2 border-slate-900 pb-6 space-y-4">
@@ -505,6 +513,40 @@
 
   <script>
     lucide.createIcons();
+
+    // Prevent Copying & Inspection
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('cut', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('keydown', function(e) {
+      // Prevent Ctrl+C, Ctrl+A, Ctrl+U, Ctrl+S, Ctrl+P, Ctrl+X
+      if ((e.ctrlKey || e.metaKey) && ['c', 'u', 's', 'a', 'x', 'p'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+        return false;
+      }
+      // Prevent F12 and Ctrl+Shift+I / J / C
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(e.key.toLowerCase()))) {
+        e.preventDefault();
+        return false;
+      }
+    });
   </script>
 
 </body>
