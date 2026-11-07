@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>العرض الفني والمالي الرسمي | منظومة تتبع صيانة الأسطول والمعدات</title>
+  
+  <!-- Fonts: Cairo & Vazirmatn & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            jakarta: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a'
+            },
+            accent: {
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              cyan: '#06b6d4'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .code-ltr {
+      direction: ltr !important;
+      unicode-bidi: embed;
+      font-family: 'Plus Jakarta Sans', monospace;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-light {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.25);
+    }
+    .glow-brand {
+      box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Print styles for executive export */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-break {
+        page-break-before: always;
+      }
+      .glass-card {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        color: #0f172a !important;
+      }
+      .text-slate-300, .text-slate-400 {
+        color: #334155 !important;
+      }
+      .text-white {
+        color: #0f172a !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-blue-600 selection:text-white">
+
+  <!-- Background decorative light gradients -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 -left-20 w-[450px] h-[450px] bg-cyan-500/10 rounded-full blur-[140px]"></div>
+    <div class="absolute -bottom-20 right-10 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[160px]"></div>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <header class="relative z-50 bg-slate-900/90 border-b border-slate-800 text-xs py-2 px-4 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-slate-300">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          وثيقة رسمية معتمدة
+        </span>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <span class="hidden sm:inline">رقم المرجع: <span class="font-mono text-cyan-400 font-bold">FLT-PRP-2026-90</span></span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-medium">
+        <span class="text-slate-400">إعداد: <strong class="text-white">م. محمد حسين</strong> (استشاري حلول البرمجيات وتطبيقات الموبايل)</span>
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 transition">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+          طباعة العرض / PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Main Navbar -->
+  <nav class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/80 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      <!-- Logo / Identity -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/25 text-white">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="font-bold text-lg text-white flex items-center gap-2">
+            منظومة FleetCare Pro
+            <span class="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">Executive</span>
+          </div>
+          <div class="text-xs text-slate-400">إدارة صيانة الأسطول والمخزن الداخلي للمعدات</div>
+        </div>
+      </div>
+
+      <!-- Nav links -->
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#overview" class="hover:text-blue-400 transition">نظرة عامة</a>
+        <a href="#screens" class="hover:text-blue-400 transition">الشاشات والوظائف</a>
+        <a href="#tradeoffs" class="hover:text-blue-400 transition">مقارنة السيرفرات والخدمات</a>
+        <a href="#pricing" class="hover:text-blue-400 transition">باقات الأسعار</a>
+        <a href="#roadmap" class="hover:text-blue-400 transition">خارطة التسليم</a>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/201019058100?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85.%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A7%D8%B7%D9%84%D8%B9%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%85%D9%86%D8%B8%D9%88%D9%85%D8%A9%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%A3%D8%B3%D8%B7%D9%88%D9%84%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A1" 
+           target="_blank"
+           class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition transform active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>محادثة واتساب مباشرة</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="overview" class="relative z-10 pt-12 pb-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-4xl mx-auto space-y-6">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-2">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          دراسة معمارية وهندسية معدة خصيصاً لشركتكم الموقرة
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+          منظومة إدارة وتتبع صيانة <br class="hidden sm:block">
+          <span class="bg-gradient-to-l from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+            أسطول السيارات والمعدات الثقيلة
+          </span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-xl font-normal leading-relaxed max-w-3xl mx-auto">
+          عرض فني وتجاري تفصيلي يشمل تطبيق موبايل للسائقين والمشرفين (<span class="font-mono text-cyan-400 font-semibold">Android & iOS</span>)، لوحة تحكم مركزية للإدارة، مستودع قطع الغيار والزيوت، توثيق الكاميرا والـ <span class="font-mono text-cyan-400 font-semibold">GPS</span>، وتقارير الواتساب بضغطة زر.
+        </p>
+
+        <!-- Executive Stat Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 text-right">
+          
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group hover:border-blue-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-3">
+              <i data-lucide="wallet" class="w-5 h-5"></i>
+            </div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">0 جنيه</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">مصاريف اشتراكات شهرية (بالباقة الذكية)</div>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3">
+              <i data-lucide="camera" class="w-5 h-5"></i>
+            </div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">منع التلاعب بتوثيق الكاميرا والـ GPS</div>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group hover:border-cyan-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-3">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">3 - 4 أسابيع</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">مدة تسليم النسخة الأساسية (MVP)</div>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group hover:border-amber-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-3">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">Android + iOS</div>
+            <div class="text-xs text-slate-400 font-medium mt-1">بالإضافة إلى لوحة تحكم إدارة Web</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Screens & Core Functional Architecture -->
+  <section id="screens" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-black text-white">
+          تفكيك متطلبات النظام والشاشات الرئيسية
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          بناءً على الشاشات والوظائف المحددة في طلبكم، تم تصميم تدفق العمل البرمجي ليغطي كافة حلقات التشغيل الميداني والإداري:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Module 1: Driver App -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-t-blue-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-500/10 transition">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg bg-blue-500/15 text-blue-400 text-xs font-bold">واجهة السائق الميدانية</span>
+              <i data-lucide="smartphone" class="w-5 h-5 text-blue-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">تطبيق الموبايل للسائقين</h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>العداد وساعات التشغيل:</strong> تمييز تلقائي بين السيارات (<span class="font-mono text-cyan-400">KM</span>) والمعدات الثقيلة (ساعات التشغيل).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>تصوير الفحص بالكاميرا:</strong> إجبار السائق على التقاط صورة حية للعداد والقطع لمنع التلاعب.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>زر جلب موقع الـ GPS:</strong> تحديد إحداثيات المعدة بضغطة زر لحظة التسجيل دون استنزاف البطارية.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>مواعيد الزيوت والفلاتر:</strong> معرفة المتبقي قبل استحقاق الصيانة القادمة فوراً.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-blue-400 font-semibold flex items-center justify-between">
+            <span>تطبيق Flutter موحد (iOS & Android)</span>
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Module 2: Fleet Manager Dashboard -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-t-emerald-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-emerald-500/10 transition">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-xs font-bold">لوحة المدير والأسطول</span>
+              <i data-lucide="layout-dashboard" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">لوحة تحكم الإدارة المركزية</h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>متابعة الأسطول لحظياً:</strong> عرض حالة كل مركبة، موقع آخر تسجيل، وقراءتها الحالية.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>استبدال وتعيين السائقين:</strong> تغيير السائق فوراً في حال ترك العمل وإسناد المعدة لسائق بديل بضغطة زر.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>تنبيهات استباقية ذكية:</strong> إشعارات قبل انتهاء عمر الزيت أو الفلاتر بناءً على معدل الاستهلاك.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-emerald-400 font-semibold flex items-center justify-between">
+            <span>لوحة تحكم Web متجاوبة</span>
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Module 3: Internal Warehouse & Store -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-t-cyan-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-cyan-500/10 transition">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg bg-cyan-500/15 text-cyan-400 text-xs font-bold">المستودع والمخزون الداخلي</span>
+              <i data-lucide="package-check" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">متجر ومخزن قطع الغيار والزيوت</h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>جرد المخزون:</strong> تتبع أرصدة الزيوت، الفلاتر، والقطع المتوفرة في مستودع الشركة.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>طلبات الصرف الميداني:</strong> طلب السائق للقطع المطلوبة ومتابعة حالة الطلب (معلق / تم الصرف).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>حد الأمان والنواقص:</strong> تنبيه تلقائي عند اقتراب نفاذ صنف معين في المخزن لإعادة الشراء.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-cyan-400 font-semibold flex items-center justify-between">
+            <span>إدارة حركة الوارد والمنصرف</span>
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Module 4: WhatsApp & Reports -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-t-amber-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-amber-500/10 transition">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-400 text-xs font-bold">الواتساب والتقارير المالية</span>
+              <i data-lucide="file-spreadsheet" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">تقارير التكاليف ومشاركة الواتساب</h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>واتساب بضغطة زر واحدة:</strong> إرسال ملخص الفحص اليومي للمدير برسالة واتساب فورية ومنسقة.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>سجل التكاليف التراكمية:</strong> حساب إجمالي ما تم إنفاقه على كل سيارة أو معدة بدقة متناهية.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>تصدير التقارير:</strong> استخراج كشوفات الصيانة بصيغتي Excel و PDF لتقديمها للإدارة أو المحاسب.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-amber-400 font-semibold flex items-center justify-between">
+            <span>شفافية مالية ورقابية كاملة</span>
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive Services & Technology Trade-offs Matrix -->
+  <section id="tradeoffs" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+          الشفافية الهندسية المطلقة
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-black text-white">
+          مقارنة خيارات السيرفرات والخدمات وعيوب كل خيار
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          وضعنا أمامكم كافة البدائل التقنية مع توضيح صريح للمزايا والعيوب والاشتراكات الشهرية لتتخذوا القرار الأنسب لميزانيتكم:
+        </p>
+      </div>
+
+      <!-- Trade-off Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- 1. Backend & Database -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="database" class="w-5 h-5 text-blue-400"></i>
+                1. السيرفرات وقواعد البيانات (Backend)
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">المحرك المسؤول عن حفظ بيانات الأسطول والتكاليف والمخزون</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-bold">3 خيارات</span>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- Option A: Supabase (Recommended) -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border-2 border-emerald-500/40 relative">
+              <span class="absolute top-3 left-3 text-[11px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">
+                ⭐ الخيار الموصى به
+              </span>
+              <div class="font-bold text-white text-base">Supabase (PostgreSQL سحابي)</div>
+              <div class="text-xs text-emerald-400 font-semibold mt-1">التكلفة الشهرية: 0 جنيه في البداية (ثم 1,200 ج عند التوسع لآلاف العمليات)</div>
+              <div class="mt-3 text-xs text-slate-300 space-y-1.5">
+                <p><strong>المزايا:</strong> قواعد بيانات علائقية مثالية لربط قطع الغيار بالمخزون والمعدات، وحساب التكاليف والتقارير بدقة فائقة وسرعة تسليم قياسية.</p>
+                <p class="text-amber-400/90"><strong>القصور (Disadvantage):</strong> الباقة المجانية تتوقف مؤقتاً إذا لم يكن هناك نشاط لمدة 7 أيام (يتم حلها بعمل فحص دوري بسيط).</p>
+              </div>
+            </div>
+
+            <!-- Option B: Firebase -->
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="font-bold text-slate-200 text-base">Firebase (Firestore من جوجل)</div>
+              <div class="text-xs text-slate-400 font-semibold mt-1">التكلفة الشهرية: مجاني في البداية ثم الدفع حسب الاستهلاك (Pay as you go)</div>
+              <div class="mt-3 text-xs text-slate-400 space-y-1.5">
+                <p><strong>المزايا:</strong> سرعة عالية في ربط الموبايل، ودعم حفظ البيانات في وضع عدم الاتصال (Offline).</p>
+                <p class="text-rose-400/90"><strong>القصور (Disadvantage):</strong> قاعدة بيانات غير علائقية (NoSQL) تجعل حساب إجمالي تكاليف كل سيارة وجرد المخزون معقداً برمجياً ويتطلب قراءات كثيرة ترفع الفاتورة الشهرية فجأة.</p>
+              </div>
+            </div>
+
+            <!-- Option C: Custom Backend -->
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="font-bold text-slate-200 text-base">سيرفر مخصص Custom Backend (Laravel / NestJS)</div>
+              <div class="text-xs text-slate-400 font-semibold mt-1">التكلفة الشهرية: سيرفر VPS ثابت بحوالي 250 إلى 500 جنيه مصري شهرياً</div>
+              <div class="mt-3 text-xs text-slate-400 space-y-1.5">
+                <p><strong>المزايا:</strong> ملكية مطلقة 100%، وبناء لوحات تحكم عملاقة للشركات، وإمكانية الربط مستقبلاً مع أنظمة ERP ومحاسبة مؤسسية.</p>
+                <p class="text-amber-400/90"><strong>القصور (Disadvantage):</strong> تكلفة برمجة ووقت تسليم أطول (أسبوعين إلى 3 أسابيع إضافية)، ويحتاج متابعة لتأمين السيرفر.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 2. Maps & Geolocation -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-5 h-5 text-emerald-400"></i>
+                2. الخرائط والموقع الجغرافي (Maps & GPS)
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">عرض مواقع المعدات والسيارات أثناء الفحص</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">خياران</span>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- Google Maps API (Recommended) -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border-2 border-emerald-500/40 relative">
+              <span class="absolute top-3 left-3 text-[11px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">
+                ⭐ الخيار الموصى به
+              </span>
+              <div class="font-bold text-white text-base">خرائط جوجل الرسمية (Google Maps API)</div>
+              <div class="text-xs text-emerald-400 font-semibold mt-1">التكلفة الشهرية: 0 جنيه (مغطاة برصيد 200$ مجاني شهرياً من جوجل)</div>
+              <div class="mt-3 text-xs text-slate-300 space-y-1.5">
+                <p><strong>المزايا:</strong> المعيار الذهبي في مصر والشرق الأوسط؛ أدق خرائط وأسرع بحث لأسماء الشوارع والأحياء باللغة العربية ومظهر حديث مألوف للسائق والمدير.</p>
+                <p class="text-amber-400/90"><strong>القصور (Disadvantage):</strong> تتطلب إدخال بطاقة بنكية دولية نشطة لتفعيل حساب جوجل كلاود (دون خصم إذا لم نتجاوز الـ 28 ألف فتح خريطة).</p>
+              </div>
+            </div>
+
+            <!-- OpenStreetMap -->
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="font-bold text-slate-200 text-base">خرائط مفتوحة المصدر (OpenStreetMap / Leaflet)</div>
+              <div class="text-xs text-slate-400 font-semibold mt-1">التكلفة الشهرية: 0 جنيه مجاناً للأبد وبدون أي فيزا</div>
+              <div class="mt-3 text-xs text-slate-400 space-y-1.5">
+                <p><strong>المزايا:</strong> مجانية 100% ولا تتطلب أي بطاقة بنكية أو حسابات سحابية مدفوعة إطلاقاً.</p>
+                <p class="text-rose-400/90"><strong>القصور (Disadvantage):</strong> شكل الخريطة كلاسيكي وأقل جاذبية، وتحويل الإحداثيات لاسم شارع باللغة العربية بطيء وله حد طلبات صارم.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 3. Image Storage -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="image" class="w-5 h-5 text-cyan-400"></i>
+                3. تخزين صور العداد والفحص (Cloud Storage)
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">حفظ صور العداد والقطع كإثبات رسمي لمنع التلاعب</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold">3 خيارات</span>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- Cloudflare R2 (Recommended) -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border-2 border-emerald-500/40 relative">
+              <span class="absolute top-3 left-3 text-[11px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">
+                ⭐ الخيار الموصى به بشدة
+              </span>
+              <div class="font-bold text-white text-base">Cloudflare R2 Storage (أمان مؤسسي)</div>
+              <div class="text-xs text-emerald-400 font-semibold mt-1">التكلفة الشهرية: 0 جنيه مجاناً (10GB سعة مجانية تكفي 40,000 صورة مضغوطة)</div>
+              <div class="mt-3 text-xs text-slate-300 space-y-1.5">
+                <p><strong>المزايا:</strong> رسوم نقل البيانات (Bandwidth) صفر جنيه دائماً! أعلى درجات حماية البيانات والسرية للشركات ولا تدفع أي رسوم مع الفحص اليومي.</p>
+                <p class="text-slate-400"><strong>القصور (Disadvantage):</strong> يتطلب ربطاً برمجياً عبر بروتوكول S3 السحابي (نقوم به في التطبيق).</p>
+              </div>
+            </div>
+
+            <!-- ImgBB / Free public hosts -->
+            <div class="p-4 rounded-xl bg-rose-950/20 border border-rose-900/40">
+              <div class="font-bold text-rose-300 text-base">مواقع الرفع المجانية العامة (مثل ImgBB)</div>
+              <div class="text-xs text-rose-400 font-semibold mt-1">التكلفة: مجانية ولكنها غير آمنة تماماً</div>
+              <div class="mt-3 text-xs text-rose-200/80 space-y-1.5">
+                <p><strong>تحذير صريح:</strong> روابط الصور تكون عامة ويمكن لأي شخص فتح صور سيارات ومعدات الشركة، والخدمة قد تحذف الصور إذا لم تُزار لفترة، مما يُضيع الإثباتات القانونية للفحص.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 4. WhatsApp Integration -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="message-square" class="w-5 h-5 text-amber-400"></i>
+                4. تكامل تقارير وتنبيهات الواتساب (WhatsApp)
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">إرسال الملخصات وتنبيهات الزيوت لمدير الأسطول</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold">خياران</span>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- WhatsApp URL Scheme (Recommended) -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border-2 border-emerald-500/40 relative">
+              <span class="absolute top-3 left-3 text-[11px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">
+                ⭐ الخيار الموصى به
+              </span>
+              <div class="font-bold text-white text-base">الربط المباشر بضغطة زر واحدة (wa.me Scheme)</div>
+              <div class="text-xs text-emerald-400 font-semibold mt-1">التكلفة الشهرية: 0 جنيه مجاناً للأبد وبدون اشتراكات</div>
+              <div class="mt-3 text-xs text-slate-300 space-y-1.5">
+                <p><strong>المزايا:</strong> لا يتطلب موافقة ميتا (فيسبوك) ولا أي اشتراكات؛ بمجرد ضغط السائق أو المشرف يتم فتح محادثة الواتساب برسالة تقرير منسقة بالكامل.</p>
+                <p class="text-amber-400/90"><strong>القصور (Disadvantage):</strong> يتطلب ضغط السائق على زر "إرسال" داخل واتساب (نصف آلي وليس آلياً تماماً).</p>
+              </div>
+            </div>
+
+            <!-- WhatsApp Cloud API -->
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="font-bold text-slate-200 text-base">واتساب السحابي الرسمي (WhatsApp Cloud API)</div>
+              <div class="text-xs text-slate-400 font-semibold mt-1">التكلفة: اشتراك شهري + 1.5 إلى 2.5 جنيه لكل رسالة</div>
+              <div class="mt-3 text-xs text-slate-400 space-y-1.5">
+                <p><strong>المزايا:</strong> إرسال آلي كامل 100% في الخلفية من السيرفر مباشرة دون أي تدخل بشري، وإرسال تنبيهات طوارئ فورية.</p>
+                <p class="text-rose-400/90"><strong>القصور (Disadvantage):</strong> مكلف بالعملة الصعبة ويتطلب سجل تجاري لتوثيق الحساب لدى فيسبوك وموافقة ميتا على نصوص الرسائل.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: The 3 Executive Pricing Packages -->
+  <section id="pricing" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+          باقات استثمارية واضحة ومحددة
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white">
+          مصفوفة الباقات التقديرية للتنفيذ
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          صُممت هذه الباقات لتمنحكم أقصى مرونة مادية وتشغيلية بما يتناسب مع حجم أسطولكم:
+        </p>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+        <!-- Tier 1: Budget Zero Running Cost -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition relative">
+          <div class="space-y-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">الباقة الأولى</span>
+              <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-bold">0 جنيه شهرياً</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-black text-white">الباقة الاقتصادية الذكية</h3>
+              <p class="text-xs text-slate-400 mt-1">مثالية للبداية السريعة والتحكم في النفقات بصفر مصاريف تشغيل</p>
+            </div>
+            
+            <div class="py-4 border-y border-slate-800">
+              <div class="text-3xl sm:text-4xl font-black text-white">30,000 <span class="text-sm font-semibold text-slate-400">ج.م</span></div>
+              <div class="text-xs text-emerald-400 font-semibold mt-1 flex items-center gap-1">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                التكلفة الشهرية للسيرفرات: 0.00 جنيه (مجاناً تماماً)
+              </div>
+              <div class="text-xs text-cyan-400 font-medium mt-1">مدة التنفيذ والتسليم: 3 إلى 4 أسابيع عمل</div>
+            </div>
+
+            <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+              <div class="font-bold text-white text-xs uppercase tracking-wider">المحتوى والخصائص:</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> تطبيق السائقين (Android + iOS)</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> تسجيل العداد وساعات التشغيل والموقع</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> توثيق الفحص بالكاميرا سحابياً</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> لوحة إدارة الأسطول واستبدال السائقين</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> إرسال التقارير للواتساب بضغطة زر</div>
+              <div class="flex items-center gap-2 text-slate-500"><i data-lucide="x" class="w-4 h-4 text-slate-600"></i> إدارة المستودع الداخلي وجرد قطع الغيار</div>
+              <div class="flex items-center gap-2 text-slate-500"><i data-lucide="x" class="w-4 h-4 text-slate-600"></i> حساب التكاليف المتقدمة وتصدير التقارير</div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-800">
+            <a href="https://wa.me/201019058100?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85.%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D9%86%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B9%D8%AA%D9%85%D8%A7%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A%D8%A9%20(30%2C000%20%D8%AC.%D9%85)" 
+               target="_blank"
+               class="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl text-sm transition">
+              <span>طلب الباقة الاقتصادية</span>
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: Recommended Pro Balanced -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between border-2 border-blue-500 glow-brand relative transform lg:-translate-y-4 bg-slate-900/90">
+          <div class="absolute -top-4 right-1/2 translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-black uppercase px-4 py-1.5 rounded-full shadow-lg">
+            ⭐ الأكثر طلباً وترشيحاً للمشروع
+          </div>
+
+          <div class="space-y-6 mt-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">الباقة المتوازنة</span>
+              <span class="px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold">شاملة المخزن والخرائط</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-black text-white">الباقة الاحترافية المتوازنة</h3>
+              <p class="text-xs text-slate-300 mt-1">تغطي كامل المتطلبات وشاشات المستودع الداخلي بدقة خرائط جوجل</p>
+            </div>
+            
+            <div class="py-4 border-y border-slate-700/80">
+              <div class="text-3xl sm:text-4xl font-black text-white">45,000 <span class="text-sm font-semibold text-slate-400">ج.م</span></div>
+              <div class="text-xs text-emerald-400 font-semibold mt-1 flex items-center gap-1">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                التكلفة الشهرية للسيرفرات: 0 جنيه في البداية (ثم 1,200 ج عند النمو الهائل)
+              </div>
+              <div class="text-xs text-cyan-400 font-medium mt-1">مدة التنفيذ والتسليم: 4 إلى 5 أسابيع عمل</div>
+            </div>
+
+            <div class="space-y-3 text-xs sm:text-sm text-slate-200">
+              <div class="font-bold text-white text-xs uppercase tracking-wider">تشمل كافة المزايا والشاشات المطلوبة:</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> كافة مميزات الباقة الاقتصادية</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <strong>خرائط جوجل الرسمية (Google Maps)</strong> بأعلى دقة</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <strong>المستودع الداخلي لقطع الغيار</strong> وإدارة المخزون والطلبات</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <strong>سجل كامل لكل صيانة وتكلفتها</strong> وإجمالي مصاريف كل سيارة</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <strong>حفظ مشفر غير محدود لصور الفحص</strong> عبر سحابة R2</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> تصدير تقارير المصاريف والجرد بصيغتي Excel و PDF</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> تدريب كامل للإدارة والسائقين وضمان دعم 30 يوماً</div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-700/80">
+            <a href="https://wa.me/201019058100?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85.%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D9%86%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B9%D8%AA%D9%85%D8%A7%D8%AF%20(%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D9%88%D8%A7%D8%B2%D9%86%D8%A9%20-%2045%2C000%20%D8%AC.%D9%85)%20%D9%88%D8%A7%D9%84%D8%A8%D8%AF%D8%A1%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0" 
+               target="_blank"
+               class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-extrabold py-3.5 px-4 rounded-xl text-sm shadow-lg shadow-blue-500/25 transition transform active:scale-95">
+              <span>اعتماد الباقة الاحترافية والبدء</span>
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3: Enterprise Automated -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition relative">
+          <div class="space-y-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">الباقة الثالثة</span>
+              <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold">أتمتة كاملة للمؤسسات</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-black text-white">باقة المؤسسات المؤتمتة</h3>
+              <p class="text-xs text-slate-400 mt-1">سيرفر مخصص بالكامل مع إرسال رسائل وتنبيهات واتساب آلية 100%</p>
+            </div>
+            
+            <div class="py-4 border-y border-slate-800">
+              <div class="text-3xl sm:text-4xl font-black text-white">75,000 <span class="text-sm font-semibold text-slate-400">ج.م</span></div>
+              <div class="text-xs text-amber-400 font-semibold mt-1 flex items-center gap-1">
+                <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+                التكلفة الشهرية للسيرفرات: من 1,500 إلى 2,500 جنيه شهرياً
+              </div>
+              <div class="text-xs text-cyan-400 font-medium mt-1">مدة التنفيذ والتسليم: 6 إلى 8 أسابيع عمل</div>
+            </div>
+
+            <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+              <div class="font-bold text-white text-xs uppercase tracking-wider">الميزات المؤسسية المتقدمة:</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> كافة مميزات الباقة الاحترافية بالكامل</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <strong>سيرفر برمجي مخصص (Custom Laravel API)</strong></div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <strong>إرسال واتساب آلي 100% من السيرفر في الخلفية</strong></div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> لوحة تحكم عملاقة للشركات (Laravel Filament)</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> جاهزية الربط المستقبلي مع برامج ERP والمحاسبة</div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-800">
+            <a href="https://wa.me/201019058100?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85.%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D9%86%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%A4%D8%AA%D9%85%D8%AA%D8%A9%20(75%2C000%20%D8%AC.%D9%85)" 
+               target="_blank"
+               class="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl text-sm transition">
+              <span>طلب باقة المؤسسات</span>
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Project Delivery Roadmap -->
+  <section id="roadmap" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-black text-white">
+          خارطة الطريق ومراحل التسليم المعتمدة
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          خطة تنفيذ هندسية دقيقة مقسمة على مراحل واضحة المعالم مع تسليمات أسبوعية:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+        <div class="glass-card p-6 rounded-2xl relative">
+          <div class="text-xs font-mono font-bold text-blue-400 mb-2">الأسبوع 1</div>
+          <div class="w-8 h-8 rounded-lg bg-blue-500/15 text-blue-400 flex items-center justify-center mb-3 font-bold">1</div>
+          <h4 class="text-base font-bold text-white mb-2">التصميم والبنية التحتية</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">تصميم واجهات المستخدم (UI/UX)، إعداد قواعد البيانات السحابية، وتهيئة بيئة تخزين الصور والخرائط.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl relative">
+          <div class="text-xs font-mono font-bold text-cyan-400 mb-2">الأسبوع 2 - 3</div>
+          <div class="w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center mb-3 font-bold">2</div>
+          <h4 class="text-base font-bold text-white mb-2">تطبيق السائقين الميداني</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">برمجة تطبيق Flutter، تكامل الكاميرا والـ GPS، عدادات الكيلومتر وساعات التشغيل، وتوليد تقارير الواتساب.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl relative">
+          <div class="text-xs font-mono font-bold text-emerald-400 mb-2">الأسبوع 4</div>
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3 font-bold">3</div>
+          <h4 class="text-base font-bold text-white mb-2">لوحة المدير والمخزن</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">بناء لوحة إدارة الأسطول، استبدال السائقين، نظام المستودع الداخلي لقطع الغيار، وجرد التكاليف.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl relative">
+          <div class="text-xs font-mono font-bold text-amber-400 mb-2">الأسبوع 5</div>
+          <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center mb-3 font-bold">4</div>
+          <h4 class="text-base font-bold text-white mb-2">الاختبارات والتسليم النهائي</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">اختبارات الضغط والمصداقية، تسليم النسخ التجريبية للأجهزة، تدريب السائقين والإدارة، وتفعيل السيرفرات الرسمية.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Guarantees & Contractual Commitments -->
+  <section class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
+    <div class="max-w-5xl mx-auto glass-card p-8 sm:p-12 rounded-3xl border border-slate-700/80 space-y-8">
+      
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+        <div>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">التزاماتنا وضماناتنا</span>
+          <h3 class="text-2xl font-black text-white mt-1">ضمان الجودة والدعم الفني المعتمد</h3>
+        </div>
+        <div class="flex items-center gap-2 text-xs bg-emerald-500/10 text-emerald-300 px-3 py-1.5 rounded-xl border border-emerald-500/20 font-bold">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          ضمان برمجي شامل
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-right">
+        
+        <div class="space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold">
+            <i data-lucide="code" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-base font-bold text-white">ملكية السورس كود 100%</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">تسليم الشفرة المصدرية كاملة مع التوثيق البرمجي ودليل التشغيل، ولا توجد أي قيود أو احتكار للكود.</p>
+        </div>
+
+        <div class="space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
+            <i data-lucide="headphones" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-base font-bold text-white">دعم فني مجاني 30 يوماً</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">فترة ضمان وصيانة ومتابعة مجانية بعد الإطلاق لمعالجة أي ملاحظات وضمان استقرار النظام على أرض الواقع.</p>
+        </div>
+
+        <div class="space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold">
+            <i data-lucide="users" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-base font-bold text-white">تدريب عملي للإدارة</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">جلسة تدريب وتوجيه عملية لمدير الأسطول والسائقين لشرح طريقة استخدام الشاشات وإصدار التقارير بسلاسة.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center space-y-8 glass-card p-8 sm:p-14 rounded-3xl border border-blue-500/30 glow-brand">
+      
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-400 text-white flex items-center justify-center mx-auto shadow-xl shadow-blue-500/25">
+        <i data-lucide="check-check" class="w-8 h-8"></i>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-2xl sm:text-4xl font-black text-white">هل أنتم مستعدون للانطلاق وتحويل أسطولكم لنظام رقمي ذكي؟</h3>
+        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
+          يسعدنا الرد على أي استفسارات فنية والبدء الفوري في إجراءات التعاقد ومرحلة التصميم الأولى.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a href="https://wa.me/201019058100?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85.%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A7%D8%B7%D9%84%D8%B9%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%20%D9%85%D8%B9%D9%83." 
+           target="_blank"
+           class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-black text-base px-8 py-4 rounded-2xl shadow-xl shadow-emerald-500/25 transition transform active:scale-95">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          <span>تأكيد والبدء عبر واتساب</span>
+        </a>
+
+        <button onclick="window.print()" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-base px-6 py-4 rounded-2xl border border-slate-700 transition">
+          <i data-lucide="printer" class="w-5 h-5"></i>
+          <span>حفظ كملف PDF / طباعة</span>
+        </button>
+      </div>
+
+      <div class="pt-6 text-xs text-slate-400">
+        هذا العرض سارٍ لمدة 14 يوماً من تاريخ إصداره • الاستشاري المسؤول: م. محمد حسين
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-slate-800/80 py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 text-center space-y-2 no-print">
+    <div>جميع الحقوق محفوظة © 2026 | وثيقة العرض الفني والتجاري لمنظومة صيانة الأسطول والمعدات</div>
+    <div>إعداد وتطوير: <strong class="text-slate-300">م. محمد حسين</strong> — استشاري ومطور برمجيات</div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
